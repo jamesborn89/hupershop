@@ -1,0 +1,17 @@
+@import "fonts";
+@import "reset";
+@import "vars";
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-image: url(../images/body-bg.png);
+}
