@@ -34,6 +34,7 @@ body {
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        z-index: 3;
     }
 
     &__logo-box {
@@ -217,6 +218,13 @@ body {
         background-image: linear-gradient(to bottom, #ff0054 0%, #ff0042 100%);
         margin-right: 40px;
         z-index: 2;
+
+        @include min24 {
+            &:hover,
+            &:focus {
+                background-image: linear-gradient(to bottom, #ff4e88 0%, #ff0000 100%);
+            }
+        }
     }
 
     &__price {
