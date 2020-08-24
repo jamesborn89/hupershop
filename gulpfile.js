@@ -11,10 +11,10 @@ var tinypng = require('gulp-tinypng-compress');
 
 gulp.task('tinypng', function () {
     return gulp.src('app/img/**/*.{png,jpg,jpeg}')
-            .pipe(tinypng({
-                key: 'vgMpGcTzpxwB7LmLZ6KzfSsMzDZhJJqL'
-            }))
-            .pipe(gulp.dest('app/images'));
+        .pipe(tinypng({
+            key: 'vgMpGcTzpxwB7LmLZ6KzfSsMzDZhJJqL'
+        }))
+        .pipe(gulp.dest('app/images'));
 });
 
 gulp.task('sass', function () {
@@ -25,35 +25,37 @@ gulp.task('sass', function () {
             overrideBrowserslist: ['last 8 versions']
         }))
         .pipe(gulp.dest('app/css'))
-        .pipe(browserSync.reload({stream: true}))
+        .pipe(browserSync.reload({ stream: true }))
 });
 
-gulp.task('style', function(){
+gulp.task('style', function () {
     return gulp.src([
-        'node_modules/magnific-popup/dist/magnific-popup.css'
+        'node_modules/magnific-popup/dist/magnific-popup.css',
+        'node_modules/wow.js/css/libs/animate.css'
     ])
-    .pipe(concat('libs.min.css'))
-    .pipe(cssmin())
-    .pipe(gulp.dest('app/css'))
+        .pipe(concat('libs.min.css'))
+        .pipe(cssmin())
+        .pipe(gulp.dest('app/css'))
 });
 
-gulp.task('script', function(){
+gulp.task('script', function () {
     return gulp.src([
-        'node_modules/magnific-popup/dist/jquery.magnific-popup.js'
+        'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
+        'node_modules/wow.js/dist/wow.js'
     ])
-    .pipe(concat('libs.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('app/js'))
+        .pipe(concat('libs.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('app/js'))
 });
 
-gulp.task('html', function(){
+gulp.task('html', function () {
     return gulp.src('app/*.html')
-    .pipe(browserSync.reload({stream: true}))
+        .pipe(browserSync.reload({ stream: true }))
 });
 
-gulp.task('js', function(){
+gulp.task('js', function () {
     return gulp.src('app/js/*.js')
-    .pipe(browserSync.reload({stream: true}))
+        .pipe(browserSync.reload({ stream: true }))
 });
 
 gulp.task('browser-sync', function () {

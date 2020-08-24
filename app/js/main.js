@@ -8,6 +8,8 @@ $(function(){
     // $('.header__menu-burger, .header__menu-list').click( function(){
     //     $('.header__menu-list').slideToggle();
     //   });
+
+    new WOW().init();
   
   
     });
