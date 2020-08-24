@@ -1,6 +1,7 @@
 @import "fonts";
 @import "reset";
 @import "vars";
+@import "mixin";
 
 html {
     box-sizing: border-box;
@@ -52,7 +53,7 @@ body {
     }
 
     &__item {
-        &+& {
+        & + & {
             margin-left: 37px;
         }
     }
@@ -62,8 +63,11 @@ body {
         color: #ffffff;
         line-height: 76px;
 
-        &:hover {
-            color: #ff0054;
+        @include min24 {
+            &:hover,
+            &:focus {
+                color: #ff0054;
+            }
         }
     }
 
@@ -87,9 +91,11 @@ body {
         width: 40px;
         height: 40px;
         background-image: linear-gradient(to top, #088b39 0%, #49fea2 100%);
-
-        &:hover {
-            background-image: linear-gradient(to top, #176f38 0%, #39f596 100%);
+        @include min24 {
+            &:hover,
+            &:focus {
+                background-image: linear-gradient(to top, #176f38 0%, #39f596 100%);
+            }
         }
     }
 
@@ -97,9 +103,11 @@ body {
         width: 40px;
         height: 40px;
         background-image: linear-gradient(to top, #5f3bc8 0%, #ab74ef 100%);
-
-        &:hover {
-            background-image: linear-gradient(59deg, #6642cf 0%, #9252e2 100%);
+        @include min24 {
+            &:hover,
+            &:focus {
+                background-image: linear-gradient(59deg, #6642cf 0%, #9252e2 100%);
+            }
         }
     }
 
@@ -115,8 +123,11 @@ body {
         display: block;
         margin-bottom: 10px;
 
-        &:hover {
-            color: #ff0054;
+        @include min24 {
+            &:hover,
+            &:focus {
+                color: #ff0054;
+            }
         }
     }
 
@@ -125,12 +136,123 @@ body {
         line-height: 20px;
     }
 
-    &__static {}
+    &__static {
+    }
 }
 
 .top {
+    position: relative;
     background: url(../images/bg-top.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    padding-top: 160px;
+    color: #fff;
+
+    &__title {
+        @extend %os-heavy;
+        max-width: 620px;
+        color: #ffffff;
+        font-size: 95px;
+        line-height: 110px;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+    }
+
+    &__list {
+        font-size: 17px;
+        line-height: 20px;
+        margin-left: 30px;
+    }
+
+    &__item {
+        margin-bottom: 50px;
+        position: relative;
+        padding-left: 65px;
+
+        &::before {
+            position: absolute;
+            width: 49px;
+            height: 47px;
+            left: -40px;
+            top: -50px;
+        }
+    }
+
+    &__icon-super {
+        &::before {
+            content: url(../images/super.svg);
+        }
+    }
+
+    &__icon-tire {
+        &::before {
+            content: url(../images/tire.svg);
+        }
+    }
+
+    &__icon-gift {
+        &::before {
+            content: url(../images/gift.svg);
+        }
+    }
+
+    &__box {
+        align-items: center;
+    }
+
+    &__link {
+        position: relative;
+        @extend %os-heavy;
+        font-size: 28px;
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 74.34px;
+        text-align: center;
+        width: 187px;
+        height: 83px;
+        box-shadow: 0 9px 29px 10px #cb0035, inset 0 2px 0 rgba(242, 171, 186, 0.5);
+        border-radius: 10px;
+        background-color: #000000;
+        background-image: linear-gradient(to bottom, #ff0054 0%, #ff0042 100%);
+        margin-right: 40px;
+        z-index: 2;
+    }
+
+    &__price {
+        text-align: center;
+    }
+
+    &__price-old {
+        display: block;
+        @extend %os-regular;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 15px;
+        text-decoration: line-through;
+        text-transform: uppercase;
+    }
+
+    &__price-new {
+        @extend %os-heavy;
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+
+    &__img-car {
+        position: absolute;
+        bottom: -9px;
+        right: 105px;
+    }
+    &::before {
+        content: url(../images/effect.png);
+        position: absolute;
+        bottom: -190px;
+        right: 0;
+    }
+    &__object {
+        position: absolute;
+        left: 300px;
+        bottom: 155px;
+    }
 }
