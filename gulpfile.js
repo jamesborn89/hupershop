@@ -10,11 +10,11 @@ let gulp = require('gulp'),
 var tinypng = require('gulp-tinypng-compress');
 
 gulp.task('tinypng', function () {
-    gulp.src('app/img/**/*.{png,jpg,jpeg}')
-        .pipe(tinypng({
-            key: 'vgMpGcTzpxwB7LmLZ6KzfSsMzDZhJJqL'
-        }))
-        .pipe(gulp.dest('app/images'));
+    return gulp.src('app/img/**/*.{png,jpg,jpeg}')
+            .pipe(tinypng({
+                key: 'vgMpGcTzpxwB7LmLZ6KzfSsMzDZhJJqL'
+            }))
+            .pipe(gulp.dest('app/images'));
 });
 
 gulp.task('sass', function () {
