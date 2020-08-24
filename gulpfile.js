@@ -41,7 +41,8 @@ gulp.task('style', function () {
 gulp.task('script', function () {
     return gulp.src([
         'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
-        'node_modules/wow.js/dist/wow.js'
+        'node_modules/wow.js/dist/wow.js',
+        'node_modules/parallax-js/dist/parallax.min.js'
     ])
         .pipe(concat('libs.min.js'))
         .pipe(uglify())

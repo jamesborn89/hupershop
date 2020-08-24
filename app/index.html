@@ -14,7 +14,7 @@
     <header class="header">
         <div class="header__top df">
             <div class="header__logo-box df">
-                <img class="header__logo" src="images/logo.png" alt="logo">
+                <a class="header__logo-link" href="#"><img class="header__logo" src="images/logo.png" alt="logo"></a>
                 <p class="header__text">Машинка трансформер на радиоуправлении
                     с доставкой по всей Украине</p>
             </div>
@@ -66,7 +66,9 @@
                 </div>
             </div>
             <img class="top__img-car wow bounceInRight" src="images/car.png" alt="car">
-            <img class="top__object" src="images/object-1.png" alt="object">
+            <div class="object" id="scene">
+                <img class="top__object" data-depth="1" src="images/object-1.png" alt="object">
+            </div>
         </div>
     </section>
 
