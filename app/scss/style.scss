@@ -40,26 +40,22 @@ body {
         margin-left: 37px;
     }
 
-
     &__logo {
         width: 100px;
         height: 52px;
         margin-right: 40px;
     }
 
-
     &__text {
         max-width: 335px;
         line-height: 20px;
     }
-
 
     &__item {
         &+& {
             margin-left: 37px;
         }
     }
-
 
     &__link {
         display: block;
@@ -70,11 +66,6 @@ body {
             color: #ff0054;
         }
     }
-
-    &__box {
-        align-items: center;
-    }
-
 
     &__svg {
         width: 16px;
@@ -102,7 +93,6 @@ body {
         }
     }
 
-
     &__wiber {
         width: 40px;
         height: 40px;
@@ -113,12 +103,10 @@ body {
         }
     }
 
-
     &__box {
-        margin-right: 70px;
+        margin-right: 37px;
         text-align: center;
     }
-
 
     &__phone {
         @extend %ms-bold;
@@ -132,12 +120,10 @@ body {
         }
     }
 
-
     &__mode {
         font-size: 14px;
         line-height: 20px;
     }
-
 
     &__static {}
 }
