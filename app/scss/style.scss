@@ -58,7 +58,7 @@ body {
     }
 
     &__item {
-        & + & {
+        &+& {
             margin-left: 37px;
         }
     }
@@ -69,6 +69,7 @@ body {
         line-height: 76px;
 
         @include min24 {
+
             &:hover,
             &:focus {
                 color: #ff0054;
@@ -98,6 +99,7 @@ body {
         background-image: linear-gradient(to top, #088b39 0%, #49fea2 100%);
 
         @include min24 {
+
             &:hover,
             &:focus {
                 background-image: linear-gradient(to top, #176f38 0%, #39f596 100%);
@@ -111,6 +113,7 @@ body {
         background-image: linear-gradient(to top, #5f3bc8 0%, #ab74ef 100%);
 
         @include min24 {
+
             &:hover,
             &:focus {
                 background-image: linear-gradient(59deg, #6642cf 0%, #9252e2 100%);
@@ -131,6 +134,7 @@ body {
         margin-bottom: 10px;
 
         @include min24 {
+
             &:hover,
             &:focus {
                 color: #ff0054;
@@ -347,6 +351,7 @@ body {
 .opportunities {
     margin-top: 160px;
     padding-bottom: 500px;
+
     &__wrapper {
         position: relative;
 
@@ -366,7 +371,7 @@ body {
         &::after {
             width: 300px;
             height: 300px;
-            top: 30%;
+            top: 45%;
         }
 
         &::before {
@@ -466,9 +471,6 @@ body {
         line-height: 74.34px;
         text-transform: uppercase;
         margin-bottom: 25px;
-    }
-
-    &__price {
     }
 
     &__price-old {
