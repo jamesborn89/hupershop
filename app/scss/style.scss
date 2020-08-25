@@ -200,7 +200,16 @@ body {
     }
 
     &__box {
+        position: relative;
         align-items: center;
+        &::before {
+            content: url(../images/effect.png);
+            position: absolute;
+            bottom: -450px;
+            right: -340px;
+            animation: effect 2.1s;
+            animation-timing-function: ease-in-out;
+        }
     }
 
     &__link {
@@ -250,17 +259,10 @@ body {
 
     &__img-car {
         position: absolute;
-        bottom: -9px;
-        right: 105px;
+        bottom: -240px;
+        right: -255px;
     }
-    &::before {
-        content: url(../images/effect.png);
-        position: absolute;
-        bottom: -190px;
-        right: 0;
-        animation: effect 2.1s;
-        animation-timing-function: ease-in-out;
-    }
+
     &__object {
         position: absolute;
         left: -79px;
