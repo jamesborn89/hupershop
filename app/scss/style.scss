@@ -270,6 +270,7 @@ body {
 
 .video {
     position: relative;
+    margin-top: 75px;
     &__object-3 {
         position: absolute;
         left: 160px;
@@ -287,6 +288,14 @@ body {
         text-align: center;
         padding-top: 148px;
         color: #fff;
+        position: relative;
+        &::after {
+            content: url(../images/sub-video.png);
+            position: absolute;
+            top: -165px;
+            left: -98px;
+            z-index: -1;
+        }
     }
 
     &__btn {
