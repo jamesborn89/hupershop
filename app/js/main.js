@@ -11,12 +11,24 @@ $(function () {
 
     new WOW().init();
 
-    
+
 
     var scene = document.getElementById('scene');
-         parallaxInstance = new Parallax(scene);
-        parallaxInstance = new Parallax(scene1);
-        parallaxInstance = new Parallax(scene2);
+    parallaxInstance = new Parallax(scene);
+    parallaxInstance = new Parallax(scene1);
+    parallaxInstance = new Parallax(scene2);
+
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 0) {
+            $('.header__top').toggleClass('static', $(this).scrollTop() > 800);
+        } else {
+            $('.header__top').removeClass('static');
+        }
+    })
+
+
+
 
 
     // var scene = document.getElementById('scane1');

@@ -26,12 +26,14 @@ body {
     font-size: 14px;
 }
 
+
+
 .header {
     color: #fff;
 
     &__top {
         position: absolute;
-        top: 20px;
+        padding: 20px 0;
         height: 76px;
         justify-content: space-between;
         align-items: center;
@@ -141,8 +143,12 @@ body {
         line-height: 20px;
     }
 
-    &__static {
-    }
+}
+
+.static {
+    position: fixed;
+    background-color: #000;
+    transition: all 0.5s;
 }
 
 .top {
