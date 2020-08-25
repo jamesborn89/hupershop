@@ -11,8 +11,15 @@ $(function () {
 
     new WOW().init();
 
-    var scene = document.getElementById('scene');
-    var parallaxInstance = new Parallax(scene);
+    
 
+    var scene = document.getElementById('scene');
+         parallaxInstance = new Parallax(scene);
+        parallaxInstance = new Parallax(scene1);
+        parallaxInstance = new Parallax(scene2);
+
+
+    // var scene = document.getElementById('scane1');
+    // var parallaxInstance = new Parallax(scene1);
 
 });
