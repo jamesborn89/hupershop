@@ -2,6 +2,7 @@
 @import "reset";
 @import "vars";
 @import "mixin";
+@import "global";
 
 html {
     box-sizing: border-box;
@@ -93,6 +94,7 @@ body {
         width: 40px;
         height: 40px;
         background-image: linear-gradient(to top, #088b39 0%, #49fea2 100%);
+
         @include min24 {
             &:hover,
             &:focus {
@@ -105,6 +107,7 @@ body {
         width: 40px;
         height: 40px;
         background-image: linear-gradient(to top, #5f3bc8 0%, #ab74ef 100%);
+
         @include min24 {
             &:hover,
             &:focus {
@@ -202,6 +205,7 @@ body {
     &__box {
         position: relative;
         align-items: center;
+
         &::before {
             content: url(../images/effect.png);
             position: absolute;
@@ -214,27 +218,9 @@ body {
 
     &__link {
         position: relative;
-        @extend %os-heavy;
-        font-size: 28px;
-        color: #fff;
-        text-transform: uppercase;
-        line-height: 74.34px;
-        text-align: center;
         width: 187px;
-        height: 83px;
-        box-shadow: 0 9px 29px 10px #cb0035, inset 0 2px 0 rgba(242, 171, 186, 0.5);
-        border-radius: 10px;
-        background-color: #000000;
-        background-image: linear-gradient(to bottom, #ff0054 0%, #ff0042 100%);
         margin-right: 40px;
         z-index: 2;
-
-        @include min24 {
-            &:hover,
-            &:focus {
-                background-image: linear-gradient(to bottom, #ff4e88 0%, #ff0000 100%);
-            }
-        }
     }
 
     &__price {
@@ -273,6 +259,7 @@ body {
 .video {
     position: relative;
     margin-top: 75px;
+
     &__object-3 {
         position: absolute;
         left: 160px;
@@ -291,6 +278,7 @@ body {
         padding-top: 148px;
         color: #fff;
         position: relative;
+
         &::after {
             content: url(../images/sub-video.png);
             position: absolute;
@@ -314,20 +302,19 @@ body {
             animation: bubble 2.1s infinite;
             animation-timing-function: ease-in-out;
         }
+
         &::after {
             width: 100px;
             height: 100px;
             left: 33px;
             top: 26px;
         }
+
         &::before {
             width: 150px;
             height: 150px;
             right: 8px;
         }
-    }
-
-    &__img {
     }
 
     &__text {
@@ -351,6 +338,152 @@ body {
     }
 }
 
+.opportunities {
+    margin-top: 160px;
+    padding-bottom: 500px;
+    &__wrapper {
+        position: relative;
+
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(#000000, 0.5);
+            animation: bubble 2.1s infinite;
+            animation-timing-function: ease-in-out;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        &::after {
+            width: 300px;
+            height: 300px;
+            top: 30%;
+        }
+
+        &::before {
+            width: 500px;
+            height: 500px;
+        }
+    }
+
+    &__title {
+        color: #161616;
+        @extend %os-heavy;
+        font-size: 109px;
+        line-height: 109.36px;
+        text-transform: uppercase;
+        max-width: 430px;
+        word-wrap: break-word;
+        margin: 0 auto;
+    }
+
+    &__img-car {
+        position: absolute;
+        top: 75px;
+        right: 160px;
+        z-index: 3;
+    }
+
+    &__img-shadowcar {
+        position: absolute;
+        right: 140px;
+        top: 90px;
+        z-index: 1;
+    }
+
+    &__item {
+        position: absolute;
+        max-width: 262px;
+        min-height: 360px;
+        box-shadow: 0 24px 35px rgba(22, 22, 22, 0.06);
+        border-radius: 5px;
+        background-color: #ffffff;
+        text-align: center;
+        z-index: 2;
+    }
+
+    &__item-1 {
+        top: 55px;
+        left: 65px;
+    }
+
+    &__item-2 {
+        right: 0;
+        left: 0;
+        top: 420px;
+        margin: 0 auto;
+    }
+
+    &__item-3 {
+        top: 55px;
+        right: -65px;
+    }
+
+    &__item-img {
+        max-width: 260px;
+        width: 100%;
+        height: 180px;
+        object-fit: contain;
+        margin-bottom: 10px;
+    }
+
+    &__item-title {
+        padding: 0 20px 10px;
+        @extend %os-heavy;
+        font-size: 24px;
+        line-height: 30px;
+        text-transform: uppercase;
+        color: #161616;
+        margin-bottom: 15px;
+    }
+
+    &__item-text {
+        padding: 0 20px 10px;
+        color: #161616;
+        line-height: 22px;
+    }
+
+    &__btn-box {
+        position: absolute;
+        right: 110px;
+        bottom: -450px;
+        text-align: center;
+        z-index: 1;
+    }
+
+    &__btn {
+        display: block;
+        width: 204px;
+        line-height: 74.34px;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+    }
+
+    &__price {
+    }
+
+    &__price-old {
+        display: block;
+        color: #000000;
+        @extend %os-medium;
+        font-size: 20px;
+        text-decoration: line-through;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    &__price-new {
+        display: block;
+        color: #000000;
+        @extend %os-heavy;
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+}
+
 @keyframes bubble {
     0% {
         opacity: 1;
@@ -368,10 +501,12 @@ body {
         opacity: 0;
         transform: scale(0);
     }
+
     50% {
         opacity: 0;
         transform: scale(0);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);

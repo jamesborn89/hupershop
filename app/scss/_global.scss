@@ -1,0 +1,30 @@
+.container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.df {
+    display: flex;
+}
+
+.btn {
+    box-shadow: 0 9px 29px 10px #cb0035, inset 0 2px 0 rgba(242, 171, 186, 0.5);
+    border-radius: 10px;
+    background-color: #000000;
+    background-image: linear-gradient(to bottom, #ff0054 0%, #ff0042 100%);
+    @extend %os-heavy;
+    font-size: 28px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 74.34px;
+    text-align: center;
+
+    @include min24 {
+        &:hover,
+        &:focus {
+            background-image: linear-gradient(to bottom, #ff4e88 0%, #ff0000 100%);
+        }
+    }
+    
+}
