@@ -29,6 +29,25 @@ $(function () {
         }
     })
 
+    $('input, select').styler();
+
+    var galleryThumbs = new Swiper('.product__thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 3,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        thumbs: {
+          swiper: galleryTop
+        }
+      });
+      var galleryTop = new Swiper('.product__top', {
+        slidesPerView: 1,
+        thumbs: {
+          swiper: galleryThumbs
+        }
+      });
+
 
 
 

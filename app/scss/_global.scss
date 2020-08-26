@@ -25,6 +25,56 @@
         &:focus {
             background-image: linear-gradient(to bottom, #ff4e88 0%, #ff0000 100%);
         }
-    }
-    
+    }   
+}
+
+.jq-checkbox {
+    border-radius: 5px;
+
+}
+
+.jq-checkbox.focused {
+    border: none;
+}
+
+.jq-radio {
+    box-shadow: none;
+    border: none;
+}
+
+.jq-radio.focused {
+    border: none;
+}
+
+.jq-radio.checked .jq-radio__div {
+    margin: 0;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: none;
+    width: 24px;
+    height: 24px;
+    border: 3px solid #ffffff;
+}
+
+.swiper-container {
+    max-width: 603px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.product__top {
+    height: auto;
+    width: 100%;
+}
+
+.product__thumbs {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.product__thumbs .swiper-slide-thumb-active {
+    opacity: 1;
 }

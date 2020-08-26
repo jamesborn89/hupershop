@@ -723,6 +723,209 @@ body {
     }
 }
 
+.product {
+    background-image: url(../images/bg-fone.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -60px;
+
+    min-height: 1140px;
+    padding-top: 165px;
+
+    &__slider {
+        margin-top: 75px;
+    }
+
+    &__top {
+        margin-bottom: 7px;
+    }
+
+    &__big-img {
+        max-width: 603px;
+        width: 100%;
+        height: 367px;
+        border-radius: 5px;
+    }
+
+    &__box {
+        max-width: 603px;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    &__min-img {
+        width: 196px;
+        height: 114px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    &__items {
+        max-width: 603px;
+    }
+    
+    &__item {
+        flex: 0 0 50%;
+        color: #ffffff;
+        font-size: 13px;
+        line-height: 19px;
+        padding-left: 100px;
+        position: relative;
+        &::before {
+            position: absolute;
+            left: -25px;
+            top: -25px;
+        }
+    }
+    &__item-1 {
+        &::before {
+            content: url(../images/money.svg);
+        }
+    }
+    &__item-2 {
+        &::before {
+            content: url(../images/transport.svg);
+        }
+    }
+
+    &__block-form {
+        margin-left: 75px;
+        padding: 45px 60px 25px;
+        width: 492px;
+        height: 709px;
+        border: 3px solid rgba(187, 40, 85, 0.97);
+        color: #fffefe;
+    }
+
+    &__form-inner {
+    }
+
+    &__title {
+        @extend %os-heavy;
+        line-height: 45px;
+        text-transform: uppercase;
+        font-size: 60px;
+    }
+
+    &__subtitle {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        display: block;
+        font-size: 32px;
+    }
+
+    &__price {
+        @extend %os-heavy;
+        text-transform: uppercase;
+    }
+
+    &__new-price {
+        text-shadow: 0 9px 37px rgba(203, 0, 53, 0.36);
+        color: #ff0054;
+        font-size: 32px;
+        line-height: 48px;
+        margin-right: 20px;
+    }
+
+    &__old-price {
+        font-size: 24px;
+        line-height: 48px;
+        text-decoration: line-through;
+    }
+
+    &__label {
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 24px;
+        margin-right: 10px;
+    }
+
+    &__form-color {
+        width: 25px;
+        height: 25px;
+        opacity: 0.99;
+        position: relative;
+    }
+
+    &__form-color--blue {
+        background-image: linear-gradient(45deg, #0068dd 0%, #27b3ff 100%);
+    }
+
+    &__form-color--red {
+        background-image: linear-gradient(45deg, #f51313 0%, #d99fa5 100%);
+    }
+
+    &__form-color--green {
+        background-image: linear-gradient(45deg, #297a22 0%, #7ec891 100%);
+    }
+
+    &__tform {
+        margin-top: 20px;
+        color: #ffffff;
+        @extend %ms-semibold;
+        line-height: 24px;
+    }
+
+    &__text {
+        color: #ffffff;
+        font-size: 13px;
+        line-height: 24px;
+    }
+
+    &__form {
+    }
+
+    &__form-lbel {
+        color: #fefefe;
+        font-size: 10px;
+        line-height: 30.43px;
+        margin-top: 20px;
+        display: block;
+    }
+
+    &__form-input {
+        display: block;
+        max-width: 323px;
+        width: 100%;
+        height: 65px;
+        padding: 24px;
+        border-radius: 5px;
+        background-color: #050506;
+        color: #fff;
+
+        &::placeholder {
+            color: #5c5b5b;
+            font-size: 16px;
+            line-height: 30.43px;
+            @extend %ms-regular;
+        }
+    }
+
+    &__form-btn {
+        margin-top: 10px;
+        display: block;
+        max-width: 323px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    &__form-politic {
+        font-size: 10px;
+        line-height: 30.43px;
+        margin-left: 35px;
+    }
+    
+    &__form-check {
+    }
+    
+    &__form-link {
+        color: #fefefe;
+        text-decoration: underline;
+    }
+}
+
+
+
 @keyframes bubble {
     0% {
         opacity: 1;
