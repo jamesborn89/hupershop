@@ -17,6 +17,8 @@ $(function () {
     parallaxInstance = new Parallax(scene);
     parallaxInstance = new Parallax(scene1);
     parallaxInstance = new Parallax(scene2);
+    parallaxInstance = new Parallax(scene4);
+    parallaxInstance = new Parallax(scene5);
 
 
     $(window).scroll(function () {
