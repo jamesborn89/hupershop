@@ -57,7 +57,7 @@ body {
     }
 
     &__item {
-        &+& {
+        & + & {
             margin-left: 37px;
         }
     }
@@ -68,7 +68,6 @@ body {
         line-height: 76px;
 
         @include min24 {
-
             &:hover,
             &:focus {
                 color: #ff0054;
@@ -98,7 +97,6 @@ body {
         background-image: linear-gradient(to top, #088b39 0%, #49fea2 100%);
 
         @include min24 {
-
             &:hover,
             &:focus {
                 background-image: linear-gradient(to top, #176f38 0%, #39f596 100%);
@@ -112,7 +110,6 @@ body {
         background-image: linear-gradient(to top, #5f3bc8 0%, #ab74ef 100%);
 
         @include min24 {
-
             &:hover,
             &:focus {
                 background-image: linear-gradient(59deg, #6642cf 0%, #9252e2 100%);
@@ -134,7 +131,6 @@ body {
         margin-bottom: 10px;
 
         @include min24 {
-
             &:hover,
             &:focus {
                 color: #ff0054;
@@ -682,7 +678,7 @@ body {
             position: absolute;
             width: 215px;
             height: 8px;
-            box-shadow: 0 24px 54px 1px rgba(176, 29, 76, 0.3);
+            box-shadow: 0 10px 54px 10px rgba(176, 29, 76, 0.7);
             background-color: #6d1818;
             border-radius: 0 0 6px 6px;
             bottom: -7px;
@@ -951,7 +947,7 @@ body {
         text-transform: uppercase;
         @extend %os-heavy;
     }
-    
+
     &__title {
         color: #161616;
         font-size: 68px;
@@ -980,6 +976,7 @@ body {
 
     &__images {
         position: relative;
+        max-height: 700px;
 
         &::after,
         &::before {
@@ -1031,7 +1028,6 @@ body {
     }
 
     &__object-8 {
-        // position: absolute;
         right: -595px;
     }
 
@@ -1064,4 +1060,80 @@ body {
         top: -415px;
         right: 100px;
     }
+}
+
+.reviews {
+    background-image: url(../images/bg-reviews.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding-top: 100px;
+
+    &__wrapper {
+        text-align: center;
+    }
+
+    &__title {
+        color: #010101;
+        @extend %os-heavy;
+        font-size: 40px;
+        line-height: 72px;
+        text-transform: uppercase;
+        margin-bottom: 26px;
+    }
+
+    &__tabs {
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    &__tab {
+        margin: 0 10px;
+        display: block;
+        width: 157px;
+        height: 53px;
+        border-radius: 5px;
+        border: 2px solid #ff0054;
+        @extend %os-heavy;
+        color: #ff0054;
+        font-size: 19px;
+        line-height: 50px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    &__tab-content {
+    }
+
+    &__tab-item {
+    }
+
+    &__tab-img {
+        max-width: 275px;
+        min-height: 549px;
+        margin: 0 20px;
+        cursor: pointer;
+    }
+}
+
+.tabs {
+}
+.tab {
+}
+.active {
+    box-shadow: 0 5px 12px 4px rgba(203, 0, 53, 0.16), 0 2px 29px 10px rgba(203, 0, 53, 0.33),
+        inset 0 2px 0 rgba(242, 171, 186, 0.5);
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom, #ff0054 0%, #ff0042 100%);
+    @extend %os-heavy;
+    color: #fff;
+}
+.tab-content {
+}
+.tab-item {
+    display: none;
+}
+.tab-item.active-tab {
+    display: block;
 }
