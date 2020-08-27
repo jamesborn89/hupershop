@@ -21,8 +21,11 @@ $(function () {
     parallaxInstance = new Parallax(scene5);
     parallaxInstance = new Parallax(scene6);
     parallaxInstance = new Parallax(scene7);
-
-
+    parallaxInstance = new Parallax(scene8);
+    parallaxInstance = new Parallax(scene9);
+    parallaxInstance = new Parallax(scene10);
+    
+    
     $(window).scroll(function () {
         if ($(this).scrollTop() > 0) {
             $('.header__top').toggleClass('static', $(this).scrollTop() > 800);

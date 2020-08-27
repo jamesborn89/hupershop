@@ -57,7 +57,7 @@ body {
     }
 
     &__item {
-        & + & {
+        &+& {
             margin-left: 37px;
         }
     }
@@ -68,6 +68,7 @@ body {
         line-height: 76px;
 
         @include min24 {
+
             &:hover,
             &:focus {
                 color: #ff0054;
@@ -97,6 +98,7 @@ body {
         background-image: linear-gradient(to top, #088b39 0%, #49fea2 100%);
 
         @include min24 {
+
             &:hover,
             &:focus {
                 background-image: linear-gradient(to top, #176f38 0%, #39f596 100%);
@@ -110,6 +112,7 @@ body {
         background-image: linear-gradient(to top, #5f3bc8 0%, #ab74ef 100%);
 
         @include min24 {
+
             &:hover,
             &:focus {
                 background-image: linear-gradient(59deg, #6642cf 0%, #9252e2 100%);
@@ -131,6 +134,7 @@ body {
         margin-bottom: 10px;
 
         @include min24 {
+
             &:hover,
             &:focus {
                 color: #ff0054;
@@ -591,6 +595,7 @@ body {
 
 .complect {
     padding-bottom: 50px;
+
     &__wrapper {
         text-align: center;
         position: relative;
@@ -631,6 +636,7 @@ body {
         left: 185px;
         top: 110px;
     }
+
     &__object-5 {
         position: absolute;
         transform: scale(0.7) rotate(-15deg);
@@ -720,6 +726,7 @@ body {
         &::before {
             content: url(../images/document.png);
         }
+
         padding-bottom: 14px;
     }
 }
@@ -772,17 +779,20 @@ body {
         line-height: 19px;
         padding-left: 100px;
         position: relative;
+
         &::before {
             position: absolute;
             left: -25px;
             top: -25px;
         }
     }
+
     &__item-1 {
         &::before {
             content: url(../images/money.svg);
         }
     }
+
     &__item-2 {
         &::before {
             content: url(../images/transport.svg);
@@ -919,11 +929,13 @@ body {
         color: #fefefe;
         text-decoration: underline;
     }
+
     &__object-6 {
         position: absolute;
         bottom: -300px;
         left: -200px;
     }
+
     &__object-7 {
         position: absolute;
         top: -150px;
@@ -931,4 +943,122 @@ body {
     }
 }
 
+.emotion {
+    padding-top: 114px;
 
+    &__texts {
+        max-width: 524px;
+    }
+
+    &__title {
+        color: #161616;
+        @extend %os-heavy;
+        font-size: 68px;
+        text-transform: uppercase;
+        line-height: 91.47px;
+        margin-bottom: 30px;
+    }
+
+    &__suptitle {
+        line-height: 91.47px;
+        font-size: 82px;
+    }
+
+    &__subtitle {
+        color: #ff0a58;
+        font-size: 123px;
+        line-height: 119.7px;
+    }
+
+    &__text {
+        color: #161616;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &__images {
+        position: relative;
+
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(#000000, 0.5);
+            animation: bubble 2.1s infinite;
+            animation-timing-function: ease-in-out;
+            left: 105px;
+            top: -115px;
+            z-index: 3;
+        }
+
+        &::after {
+            width: 300px;
+            height: 300px;
+            top: -4%;
+            left: 203px;
+        }
+
+        &::before {
+            width: 500px;
+            height: 500px;
+        }
+    }
+
+    &__img-text {
+        position: relative;
+
+        &::after {
+            content: url(../images/huper_shop.png);
+            position: absolute;
+            width: 62px;
+            height: 32px;
+            right: -150px;
+            top: -75px;
+        }
+
+        &::before {
+            content: url(../images/nameplate-red.png);
+            position: absolute;
+            width: 108px;
+            height: 108px;
+            bottom: 7px;
+            right: -173px;
+            z-index: 1;
+            animation: waterpool 5s infinite linear;
+        }
+    }
+
+    &__object-8 {
+        position: absolute;
+        right: -595px;
+    }
+
+    &__img-bg {
+        position: absolute;
+        left: -65px;
+        top: -242px;
+        z-index: 5;
+    }
+
+    &__img-car {
+        position: absolute;
+        top: 310px;
+        left: -20px;
+        z-index: 5;
+    }
+
+    &__img-boom {
+        position: absolute;
+        z-index: -1;
+        top: -200px;
+        left: -105px;
+    }
+
+    &__object-9 {
+        position: absolute;
+        bottom: -665px;
+        right: -50px;
+        transform: rotate(-25deg);
+    }
+}
