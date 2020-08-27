@@ -19,18 +19,34 @@
     text-transform: uppercase;
     line-height: 74.34px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        height: 200px;
+        width: 1px;
+        opacity: 0.7;
+        background-color: #fff;
+        box-shadow: 1px 0px 13px 10px #fff, inset 0 2px 0 rgba(242, 171, 186, 0.5);
+        transform: rotate(-50deg);
+        top: -50px;
+        left: -100px;
+        animation: btn 3s infinite;
+        animation-delay: 5s;
+    }
 
     @include min24 {
         &:hover,
         &:focus {
             background-image: linear-gradient(to bottom, #ff4e88 0%, #ff0000 100%);
         }
-    }   
+    }
 }
 
 .jq-checkbox {
     border-radius: 5px;
-
 }
 
 .jq-checkbox.focused {
