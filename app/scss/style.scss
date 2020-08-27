@@ -948,15 +948,14 @@ body {
 
     &__texts {
         max-width: 524px;
+        text-transform: uppercase;
+        @extend %os-heavy;
     }
-
+    
     &__title {
         color: #161616;
-        @extend %os-heavy;
         font-size: 68px;
-        text-transform: uppercase;
         line-height: 91.47px;
-        margin-bottom: 30px;
     }
 
     &__suptitle {
@@ -968,12 +967,15 @@ body {
         color: #ff0a58;
         font-size: 123px;
         line-height: 119.7px;
+        margin-bottom: 50px;
     }
 
     &__text {
         color: #161616;
         font-size: 16px;
         line-height: 24px;
+        text-transform: none;
+        @extend %ms-regular;
     }
 
     &__images {
@@ -1013,8 +1015,8 @@ body {
             position: absolute;
             width: 62px;
             height: 32px;
-            right: -150px;
-            top: -75px;
+            left: 23px;
+            top: -77px;
         }
 
         &::before {
@@ -1023,14 +1025,13 @@ body {
             width: 108px;
             height: 108px;
             bottom: 7px;
-            right: -173px;
             z-index: 1;
             animation: waterpool 5s infinite linear;
         }
     }
 
     &__object-8 {
-        position: absolute;
+        // position: absolute;
         right: -595px;
     }
 
@@ -1049,16 +1050,18 @@ body {
     }
 
     &__img-boom {
-        position: absolute;
         z-index: -1;
         top: -200px;
         left: -105px;
     }
 
     &__object-9 {
-        position: absolute;
-        bottom: -665px;
-        right: -50px;
+        bottom: 412px;
+        right: 15px;
         transform: rotate(-25deg);
+    }
+    &__object-10 {
+        top: -415px;
+        right: 100px;
     }
 }
