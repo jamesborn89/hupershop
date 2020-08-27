@@ -94,3 +94,18 @@
 .product__thumbs .swiper-slide-thumb-active {
     opacity: 1;
 }
+
+.active {
+    box-shadow: 0 5px 12px 4px rgba(203, 0, 53, 0.16), 0 2px 29px 10px rgba(203, 0, 53, 0.33),
+        inset 0 2px 0 rgba(242, 171, 186, 0.5);
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom, #ff0054 0%, #ff0042 100%);
+    @extend %os-heavy;
+    color: #fff;
+}
+.tab-item {
+    display: none;
+}
+.tab-item.active-tab {
+    display: block;
+}
