@@ -10,7 +10,7 @@ $(function () {
   //   });
 
   new WOW().init();
-  
+
 
   var scene = document.getElementById('scene');
   parallaxInstance = new Parallax(scene);
@@ -52,16 +52,20 @@ $(function () {
     }
   });
 
-  $('.wrapper .tab').on('click', function(event) {
+  $('.wrapper .tab').on('click', function (event) {
     var id = $(this).attr('data-id');
-      $('.wrapper').find('.tab-item').removeClass('active-tab').hide();
-      $('.wrapper .tabs').find('.tab').removeClass('active');
-      $(this).addClass('active');
-      $('#'+id).addClass('active-tab').fadeIn();
-      return false;
-    });
+    $('.wrapper').find('.tab-item').removeClass('active-tab').hide();
+    $('.wrapper .tabs').find('.tab').removeClass('active');
+    $(this).addClass('active');
+    $('#' + id).addClass('active-tab').fadeIn();
+    return false;
+  });
 
+  $('.questions__title').on('click', function(){
 
+    $('.questions__item').removeClass('questions__item--active');
+    $(this).parent().addClass('questions__item--active')
+  });
 
 
   // var scene = document.getElementById('scane1');

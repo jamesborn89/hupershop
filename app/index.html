@@ -21,12 +21,12 @@
             <nav class="header__nav">
                 <ul class="header__list df">
                     <li class="header__item"><a href="#" class="header__link">Главная</a></li>
-                    <li class="header__item"><a href="#" class="header__link">Видео</a></li>
-                    <li class="header__item"><a href="#" class="header__link">Возможности</a></li>
-                    <li class="header__item"><a href="#" class="header__link">Характеристики</a></li>
-                    <li class="header__item"><a href="#" class="header__link">Комплектация</a></li>
-                    <li class="header__item"><a href="#" class="header__link">Купить</a></li>
-                    <li class="header__item"><a href="#" class="header__link">Отзывы</a></li>
+                    <li class="header__item"><a href="#video" class="header__link">Видео</a></li>
+                    <li class="header__item"><a href="#opportunities" class="header__link">Возможности</a></li>
+                    <li class="header__item"><a href="#specifications" class="header__link">Характеристики</a></li>
+                    <li class="header__item"><a href="#complect" class="header__link">Комплектация</a></li>
+                    <li class="header__item"><a href="#product" class="header__link">Купить</a></li>
+                    <li class="header__item"><a href="#reviews" class="header__link">Отзывы</a></li>
                     <li class="header__item"><a href="#" class="header__link">Контакты</a></li>
                 </ul>
             </nav>
@@ -56,7 +56,7 @@
                 <li class="top__item top__icon-gift">Идеальный подарок. Гарантия 1 год.</li>
             </ul>
             <div class="top__box df">
-                <a class="top__link btn" href="#">Купить</a>
+                <a class="top__link btn" href="#product">Купить</a>
                 <div class="top__price">
                     <span class="top__price-old">2 100 uan</span>
                     <span class="top__price-new">1 700 uan</span>
@@ -68,7 +68,7 @@
             </div>
         </div>
     </section>
-    <section class="video">
+    <section id="video" class="video">
         <div class="container">
             <div class="object" style="z-index: 1;" id="scene1">
                 <div data-depth="0.5"><img class="video__object-3" src="images/object-3.png" alt="object"></div>
@@ -85,7 +85,7 @@
             </div>
         </div>
     </section>
-    <section class="opportunities">
+    <section id="opportunities" class="opportunities">
         <div class="container">
             <div class="opportunities__wrapper">
                 <h2 class="opportunities__title">ВОЗМОЖНОСТИ</h2>
@@ -117,7 +117,7 @@
                     </li>
                 </ul>
                 <div class="opportunities__btn-box">
-                    <a class="opportunities__btn btn" href="#">купить</a>
+                    <a class="opportunities__btn btn" href="#product">купить</a>
                     <div class="opportunities__price">
                         <span class="opportunities__price-old">2 100 uan</span>
                         <span class="opportunities__price-new">1 700 uan</span>
@@ -126,7 +126,7 @@
             </div>
         </div>
     </section>
-    <section class="specifications">
+    <section id="specifications" class="specifications">
         <div class="container">
             <div class="specifications__wrapper df">
                 <div class="specifications__info">
@@ -153,7 +153,7 @@
             </div>
         </div>
     </section>
-    <section class="complect">
+    <section id="complect" class="complect">
         <div class="container">
             <div class="complect__wrapper">
                 <div class="object" style="z-index: 1;" id="scene4">
@@ -191,7 +191,7 @@
         </div>
 
     </section>
-    <section class="product">
+    <section id="product" class="product">
         <div class="container">
             <div class="product__wrapper df">
                 <div class="product__slider">
@@ -305,7 +305,7 @@
             </div>
         </div>
     </section>
-    <section class="reviews">
+    <section id="reviews" class="reviews">
         <div class="container">
             <div class="reviews__wrapper">
                 <h3 class="reviews__title">отзывы покупателей</h3>
@@ -342,7 +342,7 @@
                         <div class="order__item-inner df">
                             <span class="order__item-number">1</span>
                             <h4 class="order__item-title">заявка
-                            или звонок</h4>
+                                или звонок</h4>
                             <p class="order__item-text">Вы оставляете заявку на сайте или звоните нам
                                 +380(099) 638-99-81</p>
                             <img class="order__item-img" src="images/order-1.png" alt="">
@@ -351,7 +351,7 @@
                     <li class="order__item">
                         <div class="order__item-inner df">
                             <span class="order__item-number">2</span>
-                            <h4 class="order__item-title">уточнение 
+                            <h4 class="order__item-title">уточнение
                                 деталей лоставки</h4>
                             <p class="order__item-text">Мы проконсультируем Вас
                                 по машинке и подтвердим Ваш заказ</p>
@@ -363,10 +363,10 @@
                             <span class="order__item-number">3</span>
                             <h4 class="order__item-title">доставка</h4>
                             <p class="order__item-text">Доставка по всей Украине
-                                курьером или через пункты свмовывоза. Доставка 
-                               по Днепру и СПб 
-                               на слудующий день. 
-                               Доставка в регионы 2-5 дней.</p>
+                                курьером или через пункты свмовывоза. Доставка
+                                по Днепру и СПб
+                                на слудующий день.
+                                Доставка в регионы 2-5 дней.</p>
                             <img class="order__item-img" src="images/order-3.png" alt="">
                         </div>
                     </li>
@@ -374,18 +374,98 @@
                         <div class="order__item-inner df">
                             <span class="order__item-number">4</span>
                             <h4 class="order__item-title">получение</h4>
-                            <p class="order__item-text">Получаете свой заказ, 
+                            <p class="order__item-text">Получаете свой заказ,
                                 оплата при получении удобным способом: наличными, безналичный расчет
-                                 </p>
+                            </p>
                             <img class="order__item-img" src="images/order-4.png" alt="">
                         </div>
                     </li>
                 </ul>
-                <a class="order__btn btn" href="#">оформить заказ</a>
+                <a class="order__btn btn" href="#product">оформить заказ</a>
             </div>
         </div>
     </section>
+    <section class="questions">
+        <div class="container">
+            <div class="questions__wrapper df">
+                <div class="questions__items">
+                    <h2 class="questions__items-title">часто задаваемые вопросы</h2>
+                    <div class="questions__item">
+                        <h4 class="questions__title">Какая гарантия действует на машину?</h4>
+                        <p class="questions__text">Доставка по всей Украине курьером или через пункты свмовывоза.
+                            Доставка по Днепру и СПб на слудующий день. Доставка в регионы 2-5 дней.</p>
+                    </div>
+                    <div class="questions__item">
+                        <h4 class="questions__title">Что входит в комплектацию?</h4>
+                        <p class="questions__text">Доставка по всей Украине курьером или через пункты свмовывоза.
+                            Доставка по Днепру и СПб на слудующий день. Доставка в регионы 2-5 дней.</p>
+                    </div>
+                    <div class="questions__item">
+                        <h4 class="questions__title">Как происходит оплата заказа?</h4>
+                        <p class="questions__text">Доставка по всей Украине курьером или через пункты свмовывоза.
+                            Доставка по Днепру и СПб на слудующий день. Доставка в регионы 2-5 дней.</p>
+                    </div>
+                    <div class="questions__item questions__item--active">
+                        <h4 class="questions__title">Как осуществляется доставки?</h4>
+                        <p class="questions__text">Доставка по всей Украине курьером или через пункты свмовывоза.
+                            Доставка по Днепру и СПб на слудующий день. Доставка в регионы 2-5 дней.</p>
+                    </div>
 
+                </div>
+                <div class="questions__form">
+                    <div class="questions__form-item">
+                        <h2 class="questions__form-title">Есть дополнительные вопросы?
+                        </h2>
+                        <p class="questions__form-subtitle">Оставьте контакты, мы перезвоним</p>
+                        <form class="product__form">
+                            <label class="questions__form-lbel product__form-lbel">Ведите Ваше имя :</label>
+                            <input class="questions__form-input product__form-input" type="text" placeholder="Ваше имя"
+                                required>
+                            <label class="questions__form-lbel product__form-lbel">Ведите контактный телефон</label>
+                            <input class="questions__form-input product__form-input" type="text"
+                                placeholder="+380 (___) ___-__-__" required>
+                            <button class="questions__form-btn product__form-btn btn">перезвоните нам</button>
+                            <label class="product__form-politic">
+                                <input class="product__form-check" type="checkbox" name="color" value="blue" required>
+                                Я принимаю условия <a class="questions__form-link product__form-link" href="#">передачи информации</a>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="questions__messengers">
+                        <span class="questions__messengers-text">или свяжитесь в месседжерах</span>
+                        <div class="questions__box-icon header__box-icon df">
+                            <a class="header__whatsapp header__icon df" href="#"><svg class="header__svg whatsapp">
+                                    <use xlink:href="sprites.svg#whatsapp"></use>
+                                </svg>
+                            </a>
+                            <a class="header__wiber header__icon df" href="#"><svg class="header__svg viber">
+                                    <use xlink:href="sprites.svg#viber"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__wrapper df">
+            <div class="footer__item">
+                <a class="footer__logo" href="#"><img class="footer__logo-img" src="images/logo.png" alt="logo"></a>
+            </div>
+            <div class="footer__box-text">
+                <p class="footer__text">Машинка трансформер на радиоуправлении 
+                    с доставкой по всей Украине</p>
+                <a class="footer__link" href="#">Политика конфиденциальности</a>
+            </div>
+            <img class="footer__img" src="images/car-4.png" alt="">
+            <div class="footer__item">
+                <p class="footer__disigner">Разработка дизайна
+                    Анастасия Терещенко</p>
+            </div>
+
+        </div>
+    </footer>
 
 
 
