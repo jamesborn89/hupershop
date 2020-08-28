@@ -899,9 +899,10 @@ body {
         border-radius: 5px;
         background-color: #050506;
         color: #fff;
+        border: 1px solid transparent;
 
         &:required:focus {
-            border: 1px solid;
+            border: 1px solid #fff;
         }
 
         &::placeholder {
@@ -1201,7 +1202,10 @@ body {
     }
 
     &__item-text {
+        @extend %ms-regular;
+        font-size: 13px;
         padding: 0 20px;
+        line-height: 19px;
     }
 
     &__item-img {
@@ -1319,6 +1323,10 @@ body {
 
     &__form-input {
         margin: 0 auto;
+        border: 2px solid transparent;
+        &:required:focus {
+            border: 2px solid rgba(187, 40, 85, 0.97);
+        }
     }
 
     &__form-link {

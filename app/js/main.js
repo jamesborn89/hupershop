@@ -64,11 +64,7 @@ $(function () {
   $('.questions__title').on('click', function(){
 
     $('.questions__item').removeClass('questions__item--active');
-    $(this).parent().addClass('questions__item--active')
+    $(this).parent().toggleClass('questions__item--active')
   });
-
-
-  // var scene = document.getElementById('scane1');
-  // var parallaxInstance = new Parallax(scene1);
 
 });
