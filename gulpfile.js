@@ -5,7 +5,10 @@ let gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    cssmin = require('gulp-cssmin');
+    cssmin = require('gulp-cssmin'),
+    webp = require('gulp-webp'),
+    webpHTML = require('gulp-webp-html'),
+    webpcss = require("gulp-webp-css");
 
 var tinypng = require('gulp-tinypng-compress');
 
@@ -17,10 +20,17 @@ gulp.task('tinypng', function () {
         .pipe(gulp.dest('app/images'));
 });
 
+gulp.task('image', () =>
+    gulp.src('app/img/*.{jpg,png,svg,gif,ico,webp}')
+        .pipe(webp())
+        .pipe(gulp.dest('app/images'))
+);
+
 gulp.task('sass', function () {
     return gulp.src('app/scss/*.scss')
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(rename({ suffix: ".min" }))
+        .pipe(webpcss())
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 8 versions']
         }))
@@ -38,8 +48,8 @@ gulp.task('style', function () {
         'node_modules/jquery-form-styler/dist/jquery.formstyler.theme.css',
         'node_modules/animate.css/animate.css'
     ])
-        .pipe(concat('libs.min.css'))
         .pipe(cssmin())
+        .pipe(concat('libs.min.css'))
         .pipe(gulp.dest('app/css'))
 });
 
@@ -62,6 +72,12 @@ gulp.task('html', function () {
         .pipe(browserSync.reload({ stream: true }))
 });
 
+gulp.task('webppicture', function () {
+    gulp.src('app/*.html')
+        .pipe(webpHTML())
+        .pipe(gulp.dest('./app/'))
+});
+
 gulp.task('js', function () {
     return gulp.src('app/js/*.js')
         .pipe(browserSync.reload({ stream: true }))
@@ -81,4 +97,4 @@ gulp.task('watch', function () {
     gulp.watch('app/js/*.js', gulp.parallel('js'))
 });
 
-gulp.task('default', gulp.parallel('tinypng', 'style', 'script', 'sass', 'watch', 'browser-sync'))
+gulp.task('default', gulp.parallel('webppicture','tinypng', 'style', 'script', 'sass', 'watch', 'browser-sync'))
