@@ -7,8 +7,13 @@
 
 html {
     box-sizing: border-box;
-    overflow-x: hidden;
     scroll-behavior: smooth;
+    height: auto;
+}
+
+.body__wrapper {
+    overflow: hidden;
+    position: relative;
 }
 
 *,
@@ -21,11 +26,16 @@ a {
     transition: all 0.3s;
 }
 
-body{
+body {
     background-image: url(../images/body-bg.png);
-    position: relative;
     @extend %ms-regular;
     font-size: 14px;
+    height: auto;
+}
+
+.oh {
+    overflow: hidden;
+    height: 100%;
 }
 
 .header {
@@ -44,22 +54,151 @@ body{
     &__logo-box {
         align-items: center;
         margin-left: 37px;
+
+        @include _1280 {
+            margin-left: 10px;
+        }
     }
 
     &__logo {
         width: 100px;
         height: 52px;
         margin-right: 40px;
+
+        @include _1680 {
+            margin-right: 20px;
+        }
+
+        @include _1280 {
+            margin-right: 10px;
+        }
     }
 
     &__text {
         max-width: 335px;
         line-height: 20px;
+
+        @include _1600 {
+            display: none;
+        }
+    }
+
+    &__burger {
+        display: none;
+        position: relative;
+        z-index: 2;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 50%;
+        box-shadow: inset 0 2px 0 rgba(242, 171, 186, 0.5);
+        background-image: linear-gradient(to bottom, #ff0054 0%, #ff0042 100%);
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s;
+        transform: rotate(0deg);
+
+        &.active {
+            transition: all 0.3s;
+            transform: rotate(360deg);
+            z-index: 5;
+
+            .header__burger-line {
+                background-color: transparent;
+                transition: all 0.6s;
+
+                &::after {
+                    transform: rotate(46deg);
+                    top: 0;
+                }
+
+                &::before {
+                    transform: rotate(-46deg);
+                    bottom: 0;
+                }
+            }
+        }
+
+        @include _1170 {
+            display: flex;
+        }
+    }
+
+    &__burger-line {
+        width: 15px;
+        height: 2px;
+        background-color: #fff;
+        position: relative;
+        transition: all 0.6s;
+
+        &::after,
+        &::before {
+            transition: all 0.3s;
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 2px;
+            background-color: #fff;
+            z-index: 1;
+            right: 0;
+        }
+
+        &::after {
+            top: -5px;
+        }
+
+        &::before {
+            bottom: -5px;
+        }
+    }
+
+    &__list {
+        transition: all 0.5s;
+
+        @include _1170 {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            top: -1300%;
+            padding-top: 60px;
+            background-color: rgba(#000, 0.9);
+            z-index: 1;
+            text-align: center;
+            display: block;
+        }
+
+        &.active {
+            top: 0;
+            overflow: auto;
+        }
     }
 
     &__item {
         &+& {
             margin-left: 37px;
+
+            @include _1680 {
+                margin-left: 15px;
+            }
+
+            @include _1280 {
+                margin-left: 10px;
+            }
+
+            @include _1170 {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__item-phone {
+        display: none;
+
+        @include _1170 {
+            display: block;
         }
     }
 
@@ -125,6 +264,16 @@ body{
         margin-right: 37px;
         text-align: center;
         align-items: center;
+
+        @include _1280 {
+            margin-right: 10px;
+        }
+    }
+
+    &__box-phone {
+        @include _1170 {
+            display: none;
+        }
     }
 
     &__phone {
@@ -140,6 +289,10 @@ body{
             &:focus {
                 color: #ff0054;
             }
+        }
+
+        @include _1680 {
+            font-size: 20px;
         }
     }
 
@@ -161,9 +314,19 @@ body{
     background-image: url(../images/bg-top.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
+    height: 1000px;
     padding-top: 160px;
     color: #fff;
+
+    @include _1024 {
+        padding-top: 75px;
+        min-height: 100%;
+        height: 900px;
+    }
+
+    @include _480 {
+        height: 700px;
+    }
 
     &__title {
         @extend %os-heavy;
@@ -173,12 +336,32 @@ body{
         line-height: 110px;
         text-transform: uppercase;
         margin-bottom: 50px;
+
+        @include _1024 {
+            font-size: 70px;
+            line-height: 85px;
+            text-align: center;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        @include _480 {
+            font-size: 40px;
+            line-height: 50px;
+            margin: 0 20px 20px;
+        }
     }
 
     &__list {
         font-size: 17px;
         line-height: 20px;
         margin-left: 30px;
+
+        @include _1024 {
+            max-width: 440px;
+            margin-left: 0;
+            margin: 0 auto;
+        }
     }
 
     &__item {
@@ -186,30 +369,45 @@ body{
         position: relative;
         padding-left: 65px;
 
+        @include _1024 {
+            margin-bottom: 20px;
+        }
+
         &::before {
+            content: "";
             position: absolute;
-            width: 49px;
-            height: 47px;
+            width: 130px;
+            height: 130px;
             left: -40px;
             top: -50px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+
+            @include _1024 {
+                width: 80px;
+                height: 80px;
+                left: 0;
+                top: -25px;
+            }
         }
     }
 
     &__icon-super {
         &::before {
-            content: url(../images/super.svg);
+            background-image: url(../images/super.svg);
         }
     }
 
     &__icon-tire {
         &::before {
-            content: url(../images/tire.svg);
+            background-image: url(../images/tire.svg);
         }
     }
 
     &__icon-gift {
         &::before {
-            content: url(../images/gift.svg);
+            background-image: url(../images/gift.svg);
         }
     }
 
@@ -217,13 +415,8 @@ body{
         position: relative;
         align-items: center;
 
-        &::before {
-            content: url(../images/effect.png);
-            position: absolute;
-            bottom: -450px;
-            right: -340px;
-            animation: effect 2.1s;
-            animation-timing-function: ease-in-out;
+        @include _1024 {
+            flex-direction: column-reverse;
         }
     }
 
@@ -232,6 +425,10 @@ body{
         width: 187px;
         margin-right: 40px;
         z-index: 2;
+
+        @include _480 {
+            margin-right: 10px;
+        }
     }
 
     &__price {
@@ -246,24 +443,119 @@ body{
         margin-bottom: 15px;
         text-decoration: line-through;
         text-transform: uppercase;
+
+        @include _480 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
     }
 
     &__price-new {
         @extend %os-heavy;
         font-size: 28px;
         text-transform: uppercase;
+
+        @include _480 {
+            font-size: 20px;
+        }
+    }
+
+    &__img {
+        position: relative;
+
+        &::before {
+            content: "";
+            background-image: url(../images/effect.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 1258px;
+            min-height: 1122px;
+            position: absolute;
+            bottom: -500px;
+            left: -100px;
+            animation: effect 2.1s;
+            animation-timing-function: ease-in-out;
+
+            @include _1600 {
+                min-height: 753px;
+                max-width: 855px;
+                left: 0;
+                bottom: -275px;
+            }
+
+            @include _1280 {
+                min-height: 620px;
+                max-width: 677px;
+                left: 70px;
+                bottom: -215px;
+            }
+
+            @include _1170 {
+                min-height: 520px;
+                max-width: 577px;
+                bottom: -190px;
+            }
+
+            @include _1024 {
+                left: -80px;
+                bottom: -75px;
+            }
+
+            @include _480 {
+                max-width: 325px;
+                min-height: 293px;
+                left: -46px;
+                bottom: -25px;
+            }
+        }
     }
 
     &__img-car {
         position: absolute;
-        bottom: -240px;
-        right: -255px;
+        bottom: -298px;
+        left: 82px;
+
+        @include _1600 {
+            bottom: -150px;
+            left: 140px;
+            max-width: 700px;
+        }
+
+        @include _1280 {
+            bottom: -100px;
+            left: 140px;
+            max-width: 610px;
+        }
+
+        @include _1170 {
+            max-width: 500px;
+        }
+
+        @include _1024 {
+            position: relative;
+            left: 0;
+            top: -20px;
+        }
+
+        @include _480 {
+            max-width: 300px;
+        }
     }
 
     &__object {
         position: absolute;
         left: -79px;
         bottom: -54px;
+
+        @include _1024 {
+            left: 130px;
+            bottom: 0;
+        }
+
+        @include _480 {
+            left: -40px;
+            bottom: 25px;
+        }
     }
 }
 
@@ -271,10 +563,31 @@ body{
     position: relative;
     padding-top: 75px;
 
+    @include _1024 {
+        padding-top: 30px;
+    }
+
     &__object-3 {
         position: absolute;
         left: 160px;
         top: 55px;
+
+        @include _1170 {
+            left: 0;
+            top: 0;
+        }
+
+        @include _768 {
+            max-width: 100px;
+            left: 30px;
+            top: 50px;
+        }
+
+        @include _480 {
+            max-width: 80px;
+            left: -30px;
+            top: 0;
+        }
     }
 
     &__inner {
@@ -284,18 +597,44 @@ body{
         margin: 0 auto;
         background-image: url(../images/video-bg.png);
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         text-align: center;
         padding-top: 148px;
         color: #fff;
         position: relative;
 
         &::after {
-            content: url(../images/sub-video.png);
+            content: "";
             position: absolute;
-            top: -165px;
-            left: -98px;
+            background-image: url(../images/sub-video.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 1168px;
+            height: 833px;
+            bottom: -62px;
+            left: -82px;
             z-index: -1;
+
+            @include _768 {
+                width: 800px;
+            }
+
+            @include _480 {
+                bottom: -300px;
+                width: 650px;
+            }
+        }
+
+        @include _1024 {
+            padding-top: 10%;
+        }
+
+        @include _480 {
+            height: 430px;
+        }
+
+        @include _320 {
+            height: 300px;
         }
     }
 
@@ -319,12 +658,34 @@ body{
             height: 100px;
             left: 33px;
             top: 26px;
+
+            @include _768 {
+                width: 50px;
+                height: 50px;
+                left: 40px;
+                top: 35px;
+            }
         }
 
         &::before {
             width: 150px;
             height: 150px;
             right: 8px;
+
+            @include _768 {
+                width: 100px;
+                height: 100px;
+                top: 10px;
+                right: 15px;
+            }
+        }
+    }
+
+    &__img {
+        max-width: 166px;
+
+        @include _768 {
+            max-width: 130px;
         }
     }
 
@@ -336,22 +697,56 @@ body{
         font-size: 17px;
         line-height: 24px;
         margin-bottom: 25px;
+
+        @include _768 {
+            margin-bottom: 5px;
+        }
+
+        @include _480 {
+            margin-top: 20%;
+            color: #000;
+        }
     }
 
     &__time {
         font-size: 12px;
+
+        @include _480 {
+            color: #000;
+        }
     }
 
     &__object-2 {
         position: absolute;
         right: 130px;
         bottom: 25px;
+
+        @include _1024 {
+            right: 55px;
+            bottom: 120px;
+        }
+
+        @include _768 {
+            max-width: 100px;
+            bottom: 150px;
+        }
+
+        @include _480 {
+            max-width: 80px;
+            bottom: 240px;
+            right: 0;
+        }
     }
 }
 
 .opportunities {
     padding-top: 160px;
     padding-bottom: 565px;
+
+    @include _1024 {
+        padding-top: 50px;
+        padding-bottom: 0;
+    }
 
     &__wrapper {
         position: relative;
@@ -374,11 +769,30 @@ body{
             width: 300px;
             height: 300px;
             top: 45%;
+
+            @include _1170 {
+                top: 87%;
+            }
+
+            @include _1024 {
+                top: 100px;
+            }
+
+            @include _480 {
+                width: 150px;
+                height: 150px;
+                top: 75px;
+            }
         }
 
         &::before {
             width: 500px;
             height: 500px;
+
+            @include _480 {
+                width: 300px;
+                height: 300px;
+            }
         }
     }
 
@@ -391,6 +805,25 @@ body{
         max-width: 430px;
         word-wrap: break-word;
         margin: 0 auto;
+
+        @include _1680 {
+            font-size: 96px;
+            max-width: 465px;
+        }
+
+        @include _1170 {
+            font-size: 50px;
+            margin: 0 auto;
+        }
+
+        @include _1024 {
+            max-width: 100%;
+            text-align: center;
+        }
+
+        @include _480 {
+            font-size: 35px;
+        }
     }
 
     &__img-car {
@@ -398,6 +831,24 @@ body{
         top: 75px;
         right: 160px;
         z-index: 4;
+
+        @include _1680 {
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+        }
+
+        @include _1280 {
+            max-width: 635px;
+        }
+
+        @include _1170 {
+            max-width: 500px;
+        }
+
+        @include _480 {
+            max-width: 300px;
+        }
     }
 
     &__img-shadowcar {
@@ -405,6 +856,30 @@ body{
         right: 140px;
         top: 90px;
         z-index: 1;
+
+        @include _1170 {
+            max-width: 500px;
+            right: 250px;
+        }
+
+        @include _1024 {
+            position: sticky;
+            margin-left: 145px;
+            max-width: 450px;
+        }
+
+        @include _480 {
+            margin-left: 5%;
+            max-width: 300px;
+        }
+    }
+
+    &__list {
+        @include _1024 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
     }
 
     &__item {
@@ -416,11 +891,20 @@ body{
         background-color: #ffffff;
         text-align: center;
         z-index: 2;
+
+        @include _1024 {
+            position: sticky;
+            margin: 0 10px 30px;
+        }
     }
 
     &__item-1 {
         top: 55px;
         left: 65px;
+
+        @include _1680 {
+            left: 0;
+        }
     }
 
     &__item-2 {
@@ -428,11 +912,20 @@ body{
         left: 0;
         top: 420px;
         margin: 0 auto;
+
+        @include _1024 {
+            margin: 0;
+            margin-bottom: 30px;
+        }
     }
 
     &__item-3 {
         top: 55px;
         right: -65px;
+
+        @include _1680 {
+            right: 0;
+        }
     }
 
     &__item-img {
@@ -464,6 +957,18 @@ body{
         bottom: -450px;
         text-align: center;
         z-index: 1;
+
+        @include _1170 {
+            bottom: -650px;
+        }
+
+        @include _1024 {
+            position: sticky;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     &__btn {
@@ -472,6 +977,14 @@ body{
         line-height: 74.34px;
         text-transform: uppercase;
         margin-bottom: 25px;
+
+        @include _1024 {
+            margin-right: 20px;
+        }
+
+        @include _320 {
+            margin-right: 0;
+        }
     }
 
     &__price-old {
@@ -498,16 +1011,46 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 225px;
-    min-height: 100%;
+    min-height: 1000px;
+
+    @include _1280 {
+        padding-top: 266px;
+    }
+
+    @include _1170 {
+        min-height: 900px;
+    }
+
+    @include _1024 {
+        margin-top: -80px;
+    }
+
+    @include _768 {
+        margin-top: -160px;
+        padding-top: 250px;
+        height: 950px;
+    }
 
     &__wrapper {
         text-align: center;
         justify-content: space-between;
+
+        @include _768 {
+            flex-wrap: wrap;
+        }
     }
 
     &__info {
         max-width: 180px;
         margin-top: 250px;
+
+        @include _768 {
+            margin-top: 0;
+        }
+
+        @include _480 {
+            max-width: 120px;
+        }
     }
 
     &__number {
@@ -519,6 +1062,11 @@ body{
         font-size: 100px;
         display: block;
         margin-bottom: 30px;
+
+        @include _480 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
     }
 
     &__spec {
@@ -528,11 +1076,21 @@ body{
         @extend %os-heavy;
         line-height: 40px;
         text-transform: uppercase;
+
+        @include _480 {
+            font-size: 18px;
+            line-height: 23px;
+        }
     }
 
     &__text {
         color: #ffffff;
         line-height: 22px;
+
+        @include _480 {
+            line-height: 18px;
+            font-size: 12px;
+        }
     }
 
     &__waterpool {
@@ -545,6 +1103,15 @@ body{
         font-size: 13px;
         line-height: 17.13px;
         text-transform: uppercase;
+
+        @include _1170 {
+            right: -5px;
+        }
+
+        @include _768 {
+            right: 0;
+            left: 0;
+        }
     }
 
     &__waterpool-namber {
@@ -565,12 +1132,36 @@ body{
             right: 65px;
             z-index: 1;
             animation: waterpool 5s infinite linear;
+
+            @include _1170 {
+                right: -35px;
+            }
+
+            @include _768 {
+                right: 0;
+                left: 0;
+                margin: 0 auto;
+            }
+        }
+
+        @include _768 {
+            order: -1;
+            flex: 100%;
+            height: 600px;
+        }
+
+        @include _768 {
+            height: 450px;
         }
     }
 
     &__title-min {
         font-size: 40px;
         display: block;
+
+        @include _480 {
+            font-size: 25px;
+        }
     }
 
     &__title {
@@ -579,23 +1170,91 @@ body{
         font-size: 70px;
         line-height: 72px;
         text-transform: uppercase;
+
+        @include _1170 {
+            font-size: 50px;
+            line-height: 60px;
+        }
+
+        @include _480 {
+            font-size: 35px;
+        }
     }
 
     &__img {
         position: absolute;
-        bottom: -290px;
+        bottom: -390px;
         right: -440px;
+        max-width: 1400px;
+        height: 1000px;
+        object-fit: contain;
+
+        @include _1280 {
+            max-width: 1200px;
+        }
+
+        @include _1170 {
+            max-width: 800px;
+            height: 800px;
+            left: -150px;
+            top: -100px;
+            bottom: 0;
+            right: 0;
+        }
+
+        @include _1024 {
+            height: 660px;
+        }
+
+        @include _768 {
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            max-width: 700px;
+            width: 110%;
+            object-fit: cover;
+            margin-right: -20px;
+        }
+
+        @include _480 {
+            height: 300px;
+            width: auto;
+            margin-right: -100px;
+            margin-top: 100px;
+        }
     }
 
     &__controller {
         position: absolute;
         bottom: -461px;
         right: -40px;
+
+        @include _1170 {
+            max-width: 400px;
+            bottom: -330px;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+        }
+
+        @include _768 {
+            bottom: -100px;
+            max-width: 300px;
+        }
+
+        @include _480 {
+            bottom: 0;
+            max-width: 260px;
+        }
     }
 }
 
 .complect {
     padding-bottom: 50px;
+
+    @include _768 {
+        padding-top: 100px;
+    }
 
     &__wrapper {
         text-align: center;
@@ -619,16 +1278,38 @@ body{
             width: 300px;
             height: 300px;
             top: 15%;
+
+            @include _1024 {
+                top: 8%;
+            }
+
+            @include _480 {
+                width: 200px;
+                height: 200px;
+                top: -100px;
+            }
         }
 
         &::before {
             width: 500px;
             height: 500px;
+
+            @include _480 {
+                width: 350px;
+                height: 350px;
+                top: -170px;
+            }
         }
     }
 
     &__img {
         margin-top: -100px;
+        max-width: 1100px;
+        width: 100%;
+
+        @include _768 {
+            margin-bottom: 50px;
+        }
     }
 
     &__object-4 {
@@ -636,6 +1317,16 @@ body{
         transform: scale(0.7);
         left: 185px;
         top: 110px;
+
+        @include _768 {
+            left: 50px;
+        }
+
+        @include _480 {
+            transform: scale(0.5);
+            top: 0;
+            left: 0;
+        }
     }
 
     &__object-5 {
@@ -643,6 +1334,17 @@ body{
         transform: scale(0.7) rotate(-15deg);
         right: 85px;
         bottom: 350px;
+
+        @include _768 {
+            right: 15px;
+            bottom: 250px;
+        }
+
+        @include _480 {
+            transform: scale(0.5) rotate(-15deg);
+            right: -15px;
+            bottom: 65px;
+        }
     }
 
     &__title {
@@ -653,10 +1355,21 @@ body{
         text-transform: uppercase;
         margin-top: -70px;
         margin-bottom: 50px;
+
+        @include _480 {
+            font-size: 25px;
+            line-height: 50px;
+            margin-top: -50px;
+        }
     }
 
     &__list {
         justify-content: space-between;
+        flex-wrap: wrap;
+
+        @include _1024 {
+            justify-content: space-around;
+        }
     }
 
     &__item {
@@ -688,6 +1401,10 @@ body{
             border-radius: 0 0 6px 6px;
             bottom: -7px;
             z-index: -1;
+        }
+
+        @include _1024 {
+            margin: 0 20px 40px;
         }
     }
 
@@ -741,8 +1458,29 @@ body{
     min-height: 1140px;
     padding-top: 165px;
 
+    @include _1280 {
+        background-position-y: -100px;
+    }
+
+    @include _1024 {
+        background-image: url(../images/bg-fone.min.png);
+        background-position-y: 0;
+        background-size: 100% 100%;
+        padding: 130px 0 100px;
+    }
+
+    &__wrapper {
+        @include _1024 {
+            display: block;
+        }
+    }
+
     &__slider {
         margin-top: 75px;
+
+        @include _1024 {
+            margin-top: 0;
+        }
     }
 
     &__top {
@@ -752,6 +1490,7 @@ body{
     &__big-img {
         max-width: 603px;
         width: 100%;
+        object-fit: cover;
         height: 367px;
         border-radius: 5px;
     }
@@ -760,17 +1499,29 @@ body{
         max-width: 603px;
         justify-content: space-between;
         margin-bottom: 20px;
+
+        @include _1024 {
+            max-width: 100%;
+        }
     }
 
     &__min-img {
-        width: 196px;
+        max-width: 196px;
+        width: 100%;
         height: 114px;
+        object-fit: cover;
         border-radius: 5px;
         cursor: pointer;
+        margin-right: 7px;
     }
 
     &__items {
         max-width: 603px;
+        flex-wrap: wrap;
+
+        @include _1024 {
+            margin: 0 auto 20px;
+        }
     }
 
     &__item {
@@ -785,6 +1536,11 @@ body{
             position: absolute;
             left: -25px;
             top: -25px;
+        }
+
+        @include _768 {
+            flex: 0 0 100%;
+            margin-bottom: 20px;
         }
     }
 
@@ -803,10 +1559,26 @@ body{
     &__block-form {
         margin-left: 75px;
         padding: 45px 60px 25px;
-        width: 492px;
-        height: 709px;
+        max-width: 492px;
+        min-height: 709px;
         border: 3px solid rgba(187, 40, 85, 0.97);
         color: #fffefe;
+
+        @include _1280 {
+            padding: 35px 33px 9px;
+        }
+
+        @include _1170 {
+            margin-left: 20px;
+        }
+
+        @include _1024 {
+            margin: 0 auto;
+        }
+
+        @include _480 {
+            padding: 10px;
+        }
     }
 
     &__title {
@@ -814,6 +1586,10 @@ body{
         line-height: 45px;
         text-transform: uppercase;
         font-size: 60px;
+
+        @include _1170 {
+            font-size: 50px;
+        }
     }
 
     &__subtitle {
@@ -821,6 +1597,10 @@ body{
         margin-bottom: 15px;
         display: block;
         font-size: 32px;
+
+        @include _1170 {
+            font-size: 20px;
+        }
     }
 
     &__price {
@@ -834,12 +1614,20 @@ body{
         font-size: 32px;
         line-height: 48px;
         margin-right: 20px;
+
+        @include _1170 {
+            font-size: 24px;
+        }
     }
 
     &__old-price {
         font-size: 24px;
         line-height: 48px;
         text-decoration: line-through;
+
+        @include _1170 {
+            font-size: 16px;
+        }
     }
 
     &__label {
@@ -925,6 +1713,10 @@ body{
         font-size: 10px;
         line-height: 30.43px;
         margin-left: 35px;
+
+        @include _480 {
+            margin: 0;
+        }
     }
 
     &__form-link {
@@ -936,33 +1728,83 @@ body{
         position: absolute;
         bottom: -300px;
         left: -200px;
+
+        @include _1440 {
+            bottom: -200px;
+            left: 0;
+        }
+
+        @include _1024 {
+            display: none;
+        }
     }
 
     &__object-7 {
         position: absolute;
         top: -150px;
         right: -400px;
+
+        @include _1440 {
+            top: -130px;
+            right: -100px;
+        }
+
+        @include _1024 {
+            display: none;
+        }
     }
 }
 
 .emotion {
     padding-top: 114px;
 
+    &__wrapper {
+        @include _1024 {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+    }
+
     &__texts {
         max-width: 524px;
+        width: 100%;
         text-transform: uppercase;
         @extend %os-heavy;
+
+        @include _1024 {
+            text-align: center;
+        }
     }
 
     &__title {
         color: #161616;
         font-size: 68px;
         line-height: 91.47px;
+
+        @include _768 {
+            font-size: 50px;
+            line-height: 60px;
+        }
+
+        @include _480 {
+            font-size: 35px;
+            line-height: 45px;
+        }
     }
 
     &__suptitle {
         line-height: 91.47px;
         font-size: 82px;
+
+        @include _768 {
+            font-size: 65px;
+            line-height: 80px;
+        }
+
+        @include _480 {
+            font-size: 45px;
+            line-height: 50px;
+        }
     }
 
     &__subtitle {
@@ -970,6 +1812,17 @@ body{
         font-size: 123px;
         line-height: 119.7px;
         margin-bottom: 50px;
+
+        @include _768 {
+            font-size: 95px;
+            line-height: 110px;
+            margin-bottom: 20px;
+        }
+
+        @include _480 {
+            font-size: 60px;
+            line-height: 80px;
+        }
     }
 
     &__text {
@@ -1008,6 +1861,14 @@ body{
             width: 500px;
             height: 500px;
         }
+
+        @include _768 {
+            max-height: 460px;
+        }
+
+        @include _480 {
+            max-height: 340px;
+        }
     }
 
     &__img-text {
@@ -1031,10 +1892,26 @@ body{
             z-index: 1;
             animation: waterpool 5s infinite linear;
         }
+
+        @include _1024 {
+            margin-left: 100px;
+        }
     }
 
     &__object-8 {
         right: -595px;
+
+        @include _768 {
+            right: -400px;
+
+            .object-8 {
+                transform: scale(0.5);
+            }
+        }
+
+        @include _480 {
+            right: -300px;
+        }
     }
 
     &__img-bg {
@@ -1042,6 +1919,22 @@ body{
         left: -65px;
         top: -242px;
         z-index: 5;
+
+        @include _1024 {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            height: 770px;
+        }
+
+        @include _768 {
+            height: 500px;
+            top: -150px;
+        }
+
+        @include _480 {
+            height: 400px;
+        }
     }
 
     &__img-car {
@@ -1049,18 +1942,54 @@ body{
         top: 310px;
         left: -20px;
         z-index: 5;
+
+        @include _1024 {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        @include _768 {
+            top: auto;
+            max-width: 500px;
+        }
+
+        @include _480 {
+            max-width: 330px;
+        }
     }
 
     &__img-boom {
         z-index: -1;
         top: -200px;
         left: -105px;
+
+        @include _768 {
+            max-width: 500px;
+            position: relative;
+            top: 130px;
+            left: 115px;
+        }
     }
 
     &__object-9 {
         bottom: 412px;
         right: 15px;
         transform: rotate(-25deg);
+
+        @include _768 {
+            bottom: 320px;
+            right: 60px;
+
+            .object-9 {
+                transform: scale(0.5);
+            }
+        }
+
+        @include _480 {
+            bottom: 400px;
+            right: 0;
+        }
     }
 
     &__object-10 {
@@ -1072,12 +2001,21 @@ body{
 .reviews {
     background-image: url(../images/bg-reviews.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     padding-top: 100px;
     min-height: 880px;
 
+    @include _1170 {
+        background-size: contain;
+        background-position: center;
+    }
+
     &__wrapper {
         text-align: center;
+    }
+
+    &__swiper {
+        overflow: hidden;
     }
 
     &__title {
@@ -1087,6 +2025,10 @@ body{
         line-height: 72px;
         text-transform: uppercase;
         margin-bottom: 26px;
+
+        @include _320 {
+            font-size: 24px;
+        }
     }
 
     &__tabs {
@@ -1108,12 +2050,16 @@ body{
         text-transform: uppercase;
         cursor: pointer;
         transition: all 0.3s;
+
+        @include _320 {
+            font-size: 14px;
+        }
     }
 
     &__tab-img {
         max-width: 275px;
+        width: 100%;
         min-height: 549px;
-        margin: 0 20px;
         cursor: pointer;
     }
 }
@@ -1126,6 +2072,21 @@ body{
     padding-top: 150px;
     min-height: 995px;
 
+    @include _1280 {
+        background-position-y: -100px;
+    }
+
+    @include _1170 {
+        background-image: url(../images/bg-fone.min2.png);
+        background-position-y: 0;
+        background-size: 100% 100%;
+        padding: 100px 0 50px;
+    }
+
+    @include _480 {
+        padding: 120px 0 100px;
+    }
+
     &__wrapper {
         text-align: center;
         color: #ffffff;
@@ -1137,15 +2098,26 @@ body{
         line-height: 72px;
         text-transform: uppercase;
         margin-bottom: 65px;
+
+        @include _480 {
+            font-size: 25px;
+            line-height: 42px;
+            margin-bottom: 20px;
+        }
     }
 
     &__list {
         justify-content: space-between;
         flex-wrap: wrap;
+
+        @include _1170 {
+            margin: 0 20px;
+            justify-content: space-around;
+        }
     }
 
     &__item {
-        margin-bottom: 77px;
+        margin: 0 10px 77px;
         width: 270px;
         height: 322px;
         box-shadow: 0 24px 35px rgba(22, 22, 22, 0.06);
@@ -1160,7 +2132,7 @@ body{
         &::after {
             content: "";
             position: absolute;
-            width: 250px;
+            width: 90%;
             height: 8px;
             box-shadow: 0 10px 54px 10px rgba(176, 29, 76, 0.7);
             background-color: #6d1818;
@@ -1170,6 +2142,10 @@ body{
             right: 0;
             left: 0;
             margin: 0 auto;
+        }
+
+        @include _1170 {
+            margin-bottom: 35px;
         }
     }
 
@@ -1219,6 +2195,10 @@ body{
         width: 299px;
         height: 70px;
         margin: 0 auto;
+
+        @include _1170 {
+            margin-bottom: 50px;
+        }
     }
 }
 
@@ -1228,9 +2208,29 @@ body{
     background-size: cover;
     min-height: 710px;
 
+    @include _1170 {
+        background-size: contain;
+        background-position: center;
+    }
+
+    &__wrapper {
+        @include _1024 {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
     &__items {
         max-width: 540px;
         margin-right: 140px;
+
+        @include _1170 {
+            margin-right: 40px;
+        }
+
+        @include _1024 {
+            margin-right: 0;
+        }
     }
 
     &__items-title {
@@ -1240,6 +2240,11 @@ body{
         line-height: 55px;
         text-transform: uppercase;
         margin-bottom: 35px;
+
+        @include _480 {
+            font-size: 30px;
+            line-height: 40px;
+        }
     }
 
     &__item {
@@ -1265,6 +2270,11 @@ body{
                 transition: all 0.3s;
                 transform: rotate(360deg);
             }
+        }
+
+        @include _480 {
+            font-size: 14px;
+            line-height: 20px;
         }
     }
 
@@ -1293,10 +2303,26 @@ body{
         width: 100%;
         min-height: 646px;
         border: 3px solid rgba(187, 40, 85, 0.97);
+
+        @include _1170 {
+            min-height: 600px;
+        }
+
+        @include _480 {
+            min-height: 550px;
+        }
     }
 
     &__form-item {
         padding: 55px 65px 24px;
+
+        @include _1170 {
+            padding: 30px;
+        }
+
+        @include _480 {
+            padding: 10px;
+        }
     }
 
     &__form-title {
@@ -1305,6 +2331,11 @@ body{
         font-size: 32px;
         line-height: 40px;
         text-transform: uppercase;
+
+        @include _480 {
+            font-size: 20px;
+            line-height: 30px;
+        }
     }
 
     &__form-subtitle {
@@ -1324,6 +2355,7 @@ body{
     &__form-input {
         margin: 0 auto;
         border: 2px solid transparent;
+
         &:required:focus {
             border: 2px solid rgba(187, 40, 85, 0.97);
         }
@@ -1335,12 +2367,20 @@ body{
 
     &__form-btn {
         margin: 10px auto;
+
+        @include _480 {
+            font-size: 20px;
+        }
     }
 
     &__messengers {
         text-align: center;
         border-top: 2px solid #dad7d7;
         padding-top: 30px;
+
+        @include _1170 {
+            padding: 10px;
+        }
     }
 
     &__messengers-text {
@@ -1367,24 +2407,54 @@ body{
         padding: 280px 40px 30px;
         color: #fff;
         justify-content: space-between;
+        flex-wrap: wrap;
         align-items: center;
         position: relative;
-    }
 
+        @include _480 {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 315px 0 20px;
+            margin-top: -230px;
+        }
+    }
 
     &__logo {
         margin-right: 40px;
-    }
 
+        @include _480 {
+            margin-right: 0;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
 
     &__box-text {
         margin-right: auto;
+
+        @include _768 {
+            order: 3;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        @include _480 {
+            order: 0;
+            margin: 0 0 20px 0;
+            width: auto;
+        }
+
     }
 
     &__text {
         max-width: 340px;
         font-size: 14px;
         line-height: 20px;
+
+        @include _480 {
+            margin-bottom: 10px;
+        }
     }
 
     &__link {
@@ -1402,7 +2472,17 @@ body{
         right: 0;
         left: 0;
         margin: 0 auto;
-        transform: scale(-1, 1)
+        transform: scale(-1, 1);
+
+        @include _1170 {
+            width: 355px;
+            height: 214px;
+            top: 67px;
+        }
+
+        @include _480 {
+            display: none;
+        }
     }
 
     &__disigner {
@@ -1410,6 +2490,6 @@ body{
         height: 27px;
         font-size: 11px;
         line-height: 16px;
+        margin-left: 20px;
     }
 }
-

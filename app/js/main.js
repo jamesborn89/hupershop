@@ -1,28 +1,23 @@
 $(function () {
 
-  // burger
-  // $('.header__menu-burger, .header__menu-list').on('click', function(){
-  //   $('.header__menu-burger').toggleClass('active');
-  // });
 
-  // $('.header__menu-burger, .header__menu-list').click( function(){
-  //     $('.header__menu-list').slideToggle();
-  //   });
+  $('.header__burger, .header__list').on('click', function () {
+    $('.header__burger, .header__list').toggleClass('active');
+  });
+
+  
+  $('.header__burger, .header__list').click(function () {
+    $('.header__menu-list').slideToggle();
+    $('body').removeClass();
+  });
+
+    $('.header__burger').on('click', function () {
+      $('body').toggleClass('oh');
+  });
 
   new WOW().init();
 
 
-  var scene = document.getElementById('scene');
-  parallaxInstance = new Parallax(scene);
-  parallaxInstance = new Parallax(scene1);
-  parallaxInstance = new Parallax(scene2);
-  parallaxInstance = new Parallax(scene4);
-  parallaxInstance = new Parallax(scene5);
-  parallaxInstance = new Parallax(scene6);
-  parallaxInstance = new Parallax(scene7);
-  parallaxInstance = new Parallax(scene8);
-  parallaxInstance = new Parallax(scene9);
-  parallaxInstance = new Parallax(scene10);
 
 
   $(window).scroll(function () {
@@ -52,6 +47,20 @@ $(function () {
     }
   });
 
+  var swiper = new Swiper('.reviews__swiper', {
+    swiperContainer: '.reviews__swiper',
+    slidesPerView: 1,
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+      },
+
+      1024: {
+        slidesPerView: 3,
+      }
+    }
+  });
+
   $('.wrapper .tab').on('click', function (event) {
     var id = $(this).attr('data-id');
     $('.wrapper').find('.tab-item').removeClass('active-tab').hide();
@@ -61,10 +70,22 @@ $(function () {
     return false;
   });
 
-  $('.questions__title').on('click', function(){
+  $('.questions__title').on('click', function () {
 
     $('.questions__item').removeClass('questions__item--active');
     $(this).parent().toggleClass('questions__item--active')
   });
+
+  var scene = document.getElementById('scene');
+  parallaxInstance = new Parallax(scene);
+  parallaxInstance = new Parallax(scene1);
+  parallaxInstance = new Parallax(scene2);
+  parallaxInstance = new Parallax(scene4);
+  parallaxInstance = new Parallax(scene5);
+  parallaxInstance = new Parallax(scene6);
+  parallaxInstance = new Parallax(scene7);
+  parallaxInstance = new Parallax(scene8);
+  parallaxInstance = new Parallax(scene9);
+  parallaxInstance = new Parallax(scene10);
 
 });
