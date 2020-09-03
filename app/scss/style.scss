@@ -2308,6 +2308,7 @@ body {
         width: 100%;
         min-height: 646px;
         border: 3px solid rgba(187, 40, 85, 0.97);
+        z-index: 3;
 
         @include _1170 {
             min-height: 600px;
