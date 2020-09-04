@@ -1,19 +1,23 @@
 $(function () {
 
 
-  $('.header__burger, .header__list').on('click', function () {
+  $('.header__burger, .header__list').click(function () {
     $('.header__burger, .header__list').toggleClass('active');
   });
 
-  
-  $('.header__burger, .header__list').click(function () {
-    $('.header__menu-list').slideToggle();
-    $('body').removeClass();
+  $('.header__burger').click(function () {
+    $('body').toggleClass('oh');
   });
 
-    $('.header__burger').on('click', function () {
-      $('body').toggleClass('oh');
+  $('.header__burger, .header__list').click(function () {
+    $('.header__menu-list').slideToggle();
   });
+  
+  $('.active, .header__list').click(function(){
+    $('body').removeClass();
+  });
+  
+
 
   new WOW().init();
 
